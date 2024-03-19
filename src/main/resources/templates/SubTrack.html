@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPL Certificate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      @font-face {
+        font-family: Avenir;
+        src: url("https://gplalchemy-uat.nimapinfotech.com/api/downloadFile/4f621e88-682d-4149-9a00-56385544cf5c_Avenir.ttc");
+      }
+      /* @font-face {
+        font-family: Cinzel;
+        src: url("https://gplalchemy-uat.nimapinfotech.com/api/downloadFile/61320732-4f57-4d6d-aa23-eead97391351_Cinzel-VariableFont_wght.ttf");
+      } */
+      @font-face {
+        font-family: Greatvibes;
+        src: url("https://gplalchemy-uat.nimapinfotech.com/api/downloadFile/19202c7e-3abf-463c-89e3-ff9b652e4a24_GREATVIBES-REGULAR.OTF");
+      }
+
+      .main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .certificate {
+        background-image: url("https://gplalchemy-uat.nimapinfotech.com/api/downloadFile/52bf3cc0-3847-43ef-98b1-c8f717c127ff_Certificate.jpg");
+        height: 560px;
+        width: 790px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .innerDiv {
+        height: 290px;
+        width: 600px;
+      }
+
+      p {
+        margin: 0px;
+        text-align: center;
+      }
+
+      .mainText {
+        color: #f0bb7f;
+        font-family: 'Cinzel', serif;
+      }
+
+      .title {
+        font-size: 45px;
+      }
+      .smallTitle {
+        margin-top: -10px;
+        font-size: 15px;
+        color: #FDDFAD;
+      }
+      .name {
+        font-family: Greatvibes;
+        color: #b3923c;
+        font-size: 57px;
+      }
+
+      .message {
+        font-family: Avenir, 'Montserrat', sans-serif;;
+        font-size: 14px;
+        color: #e1b578;
+      }
+      .line {
+        border-bottom: 1px solid #e1b578;
+        display: inline-block;
+        letter-spacing: 1px;
+        width: 130px;
+      }
+      .mt-25 {
+        margin-top: 35px;
+      }
+      .mt-4 {
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="certificate">
+        <div class="innerDiv">
+          <b><p class="mainText title">CERTIFICATE</p></b>
+          <b><p class="mainText smallTitle">OF COMPLETION</p></b>
+          <p class="name mt-25" th:text="${username}"></p>
+          <p class="message mt-25">
+            has succesfully completed
+            <span class="line"><span th:text="${Probability}"></span></span> Track on          </p>
+           <p class="message mt-4"><span th:text="${date}"></span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

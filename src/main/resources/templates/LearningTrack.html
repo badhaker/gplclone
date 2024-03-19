@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Peddana&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
+<title>Probability Learning Track</title>
+<style>
+body {
+display: flex;
+justify-content: center;
+}
+
+.main {
+width: 800px;
+height: 550px;
+padding: 16px;
+border: 5px solid #6fa624;
+
+}
+
+.body {
+display: block;
+text-align: center;
+justify-self: center;
+margin-bottom: 72px;
+}
+
+.center-block {
+width: 600px;
+margin: auto;
+border-top: 3px solid #D19AAC;
+}
+
+.title {
+font-family: "Peddana", serif;
+font-style: normal;
+font-size: 48px;
+display: block;
+text-transform: uppercase;
+color: #333333;
+}
+
+.banner {
+width: 250px;
+margin: auto;
+font-family: "Lateef";
+background-color: #9b034a;
+color: white;
+clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+font-size: 15px;
+padding: 7px 40px;
+margin-bottom: 8px;
+text-transform: uppercase;
+}
+
+.name {
+font-family: "Lateef";
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 60px;
+color: #9b034a;
+}
+
+.success-msg {
+font-family: "Inter";
+font-style: normal;
+font-size: 12px;
+line-height: 16px;
+color: #333333;
+}
+
+.ta-centre {
+text-align: center;
+}
+
+.greet-msg {
+/* width: 460px; */
+text-align: center;
+font-family: "Inter", sans-serif;
+font-weight: 500;
+font-size: 18px;
+padding: 10px 0px;
+margin-bottom: 32px;
+}
+
+.footer {
+display: flex !important;
+
+padding: 0 32px;
+}
+
+.center {
+width: 450px;
+}
+
+.footer .footer-div1 {
+border-top: 1px solid gray;
+}
+
+.footer .footer-div2 {
+border-top: 1px solid gray;
+}
+
+.footer .footer-name {
+font-family: "Inter";
+font-weight: 500;
+font-style: normal;
+font-size: 15px;
+line-height: 0px;
+text-align: center;
+color: #000000;
+}
+
+.footer div p {
+font-family: "Inter", sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 11px;
+text-align: center;
+color: #000000;
+line-height: 18px;
+}
+</style>
+</head>
+
+<body>
+<div class="main">
+<div class="content">
+<div class="header">
+<img src="https://gplalchemy-uat.nimapinfotech.com/api/downloadFile/logo.svg" alt="Godrej logo"
+class="logo" />
+</div>
+<div class="body">
+<br />
+<div class="center-block">
+    <p class="point">.</p>
+<div class="title">Certificate of Completion</div>
+<p class="banner">This is to acknowledge that</p>
+<div class="name"  th:text="${username}"></div>
+<section class="ta-centre">
+    <span class="success-msg">
+      has successfully completed <b th:text="${Probability}"></b> Module in the
+      category of <br /> <b th:text="${LearningTrack}"></b>
+      Learning Track of <b>GPL Alchemy Program</b> <br />
+      on <b th:text="${date}"></b>
+    </span>
+  </section>
+<p class="greet-msg">We cherish your hard work and dedication.</p>
+
+</div>
+<div class="footer" id="footer_">
+<div class="footer-div1">
+<p class="footer-name">Gaurav Pandey</p>
+<p>
+Managing Director & <br />
+Chief Exicutive Officer
+</p>
+</div>
+<div class="center">
+
+</div>
+<div class="footer-div2">
+<p class="footer-name">Megha Goel</p>
+<p>Chief Human Resources Officer</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</body>
+
+</html>

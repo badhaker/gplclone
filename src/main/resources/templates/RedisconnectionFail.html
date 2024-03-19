@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Redis Connection Filed</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f8f8f8;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
+
+.footer {
+	font-size: 14px;
+	color: #777;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Redis Connection Failed</h1>
+		<p th:text="${username}">Dear</p>
+		<p>
+			The System is facing Redis Connection Problem , it could happen
+			because of redis server is not working , not rechable or slow ,
+			please check the connection . <b>Note:</b> it would not affect to
+			System.
+		</p>
+		<p>
+		Server: 
+		<b th:text="${server}"></b>
+		</p>
+
+		<p class="footer">
+
+			<br> GPL System
+		</p>
+	</div>
+</body>
+</html>

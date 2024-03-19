@@ -1,0 +1,76 @@
+version: "3"
+
+services:
+  app:
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./docker/app/Dockerfile
+      args:
+        - ACTIVE_PROFILE=${ACTIVE_PROFILE}
+        - DATABASE_HOST=${DATABASE_HOST}
+        - DATABASE_PORT=${DATABASE_PORT}
+        - DATABASE_NAME=${DATABASE_NAME}
+        - DATABASE_USERNAME=${DATABASE_USERNAME}
+        - DATABASE_SCHEMA=${DATABASE_SCHEMA}
+        - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+        - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+        - REDIS_HOST=${REDIS_HOST}
+        - REDIS_PASSWORD=${REDIS_PASSWORD}
+        - REDIS_PORT=${REDIS_PORT}
+        - ONBOARDING_URL=${ONBOARDING_URL}
+        - SMTP_HOST=${SMTP_HOST}
+        - SMTP_PASSWORD=${SMTP_PASSWORD}
+        - SMTP_PORT=${SMTP_PORT}
+        - SMTP_USERNAME=${SMTP_USERNAME}
+        - SMTP_FROM_EMAIL=${SMTP_FROM_EMAIL}
+        - SSO_TENANT_ID=${SSO_TENANT_ID}
+        - SSO_ASSERTION_SERVICE_URL=${SSO_ASSERTION_SERVICE_URL}
+        - SSO_ISSUER=${SSO_ISSUER}
+        - SAML_CERTIFICATE=${SAML_CERTIFICATE}
+        - SSO_REDIRECT_URL=${SSO_REDIRECT_URL}
+    image: "roshanbnimap/gpl-alchemy:backend-${DEPLOY_ENV}"
+    deploy:
+      resources:
+        limits:
+          memory: 8g
+    links:
+      - db
+      - redis
+    container_name: "gpl-alchemy-backend-${DEPLOY_ENV}"
+    volumes:
+      - gpl-alchemy-private-files:/opt/app/private/files
+
+  db:
+    restart: always
+    image: postgres:12.0
+    container_name: "gpl-alchemy-db-${DEPLOY_ENV}"
+    environment:
+      LC_ALL: C.UTF-8
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      REDIS_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - gpl-alchemy-db:/var/lib/postgresql/data
+
+  redis:
+    container_name: "gpl-alchemy-redis-${DEPLOY_ENV}"
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./docker/redis/Dockerfile
+      args:
+        - REDIS_PASSWORD=${REDIS_PASSWORD}
+    sysctls:
+      - net.core.somaxconn=65535
+    # command: redis-server --requirepass ${REDIS_PASSWORD}
+    # environment:
+    #   - REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    image: "roshanbnimap/gpl-alchemy:redis-${DEPLOY_ENV}"
+
+volumes:
+  gpl-alchemy-db:
+  gpl-alchemy-private-files:

@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    ports:
+      - 9710:9001
+
+  db:
+    ports:
+      - 9712:5432
+
+  redis:
+    ports:
+      - 9713:6379
